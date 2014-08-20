@@ -30,10 +30,8 @@ void __fastcall TForm1::FormPaint(TObject *Sender)
 
 void __fastcall TForm1::FormCreate(TObject *Sender)
 {
-	Resolution sResolution;
-	sResolution.setWidth(Form1->ClientWidth);
-	sResolution.setHeight(Form1->ClientHeight);
-	gHandler.initialize(sResolution, 1, Form1->Canvas);
+	Resolution * sResolution = new Resolution(Form1->ClientWidth, Form1->ClientHeight);
+	gHandler.initialize(*sResolution, 1, Form1->Canvas);
 	gHandler.formToUpdate = Form1;
 }
 //---------------------------------------------------------------------------

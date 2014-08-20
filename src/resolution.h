@@ -6,6 +6,7 @@ class Resolution
 	public:
 
 	Resolution();
+	Resolution(int initWidth, int initHeight);
 	~Resolution();
 
 	int setWidth(int newWidth);

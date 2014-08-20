@@ -32,12 +32,12 @@ void ScreenOutput::bitmapToCanvas()
 
 void ScreenOutput::performAntiAliasing()
 {
-	int ** iBContent = currentScreenRenderBuffer->content;
+	int ** fBContent = currentForegroundRenderBuffer->content;
 	int ** sBContent = screenBuffer.content;
 	// temp
 	for(int y = 0; y < screenResolution.getHeight(); ++y)
 	{
-        memcpy(sBContent[y], iBContent[y], screenResolution.getWidth() * 4);
+		memcpy(sBContent[y], fBContent[y], screenResolution.getWidth() * 4);
     }
 }
 
@@ -48,10 +48,8 @@ int ScreenOutput::initialize(Resolution initResolution, int initAntiAliasingFact
 	antiAliasingFactor = initAntiAliasingFactor;
 	renderResolution.setWidth(initResolution.getWidth() * initAntiAliasingFactor);
 	renderResolution.setHeight(initResolution.getHeight() * initAntiAliasingFactor);
-	renderBuffer1.initialize(renderResolution.getWidth(), renderResolution.getHeight());
-	renderBuffer2.initialize(renderResolution.getWidth(), renderResolution.getHeight());
-	currentRasterizerRenderBuffer = &renderBuffer1;
-	currentScreenRenderBuffer = &renderBuffer2;
+	renderBuffer.initialize(renderResolution.getWidth(), renderResolution.getHeight());
+	currentForegroundRenderBuffer = &renderBuffer;
 	screenBuffer.initialize(screenResolution.getWidth(), screenResolution.getHeight());
 	screenBMP = new Graphics::TBitmap;
 	screenBMP->PixelFormat = pf32bit;
@@ -94,8 +92,7 @@ int ScreenOutput::resize(Resolution newResolution, int newAntiAliasingFactor)
 	antiAliasingFactor = newAntiAliasingFactor;
 	renderResolution.setWidth(newResolution.getWidth() * newAntiAliasingFactor);
 	renderResolution.setHeight(newResolution.getHeight() * newAntiAliasingFactor);
-	renderBuffer1.resize(renderResolution.getWidth(), renderResolution.getHeight());
-	renderBuffer2.resize(renderResolution.getWidth(), renderResolution.getHeight());
+	renderBuffer.resize(renderResolution.getWidth(), renderResolution.getHeight());
 	screenBuffer.resize(screenResolution.getWidth(), screenResolution.getHeight());
 	screenBMP->SetSize(screenResolution.getWidth(), screenResolution.getHeight());
 	return 1;

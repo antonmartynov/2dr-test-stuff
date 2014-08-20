@@ -19,7 +19,7 @@ void GraphicsHandler::initialize(Resolution initResolution, int initAntiAliasing
 	Resolution zeroResolution;
 	zeroResolution.setWidth(1);
 	zeroResolution.setHeight(1);
-	rRizer.initialize(zeroResolution, sOutput.currentScreenRenderBuffer);
+	rRizer.initialize(zeroResolution, sOutput.currentForegroundRenderBuffer);
 	rRizer.updateRenderResolution();
 	BITMAP_READY = RegisterWindowMessage("BITMAP_READY");
 }
@@ -70,7 +70,7 @@ void GraphicsHandler::produceOneFrame()
 {
 	rRizer.renderFrame();
 	//soutput.switchrenderbuffers
-	rRizer.outputArray = sOutput.currentScreenRenderBuffer;
+	rRizer.outputBuffer = sOutput.currentForegroundRenderBuffer;
 	//rasterizer.maincam.renderbuffer = soutput.currentexternalbuffer
 	sOutput.arrayToBitmap();
 	PostMessage(Application->Handle, BITMAP_READY, 0, 0);

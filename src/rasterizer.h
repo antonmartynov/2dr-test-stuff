@@ -10,14 +10,14 @@ class Rasterizer
 	Rasterizer();
 	~Rasterizer();
 
-	void initialize(Resolution initRenderResolution, Surface * initOutputArray);
+	void initialize(Resolution initRenderResolution, Surface * initOutputBuffer);
 	void deinitialize();
 
 	void setRenderResolution(Resolution newRenderResolution, bool active);
 	Resolution getRenderResolution();
 	void updateRenderResolution();
 
-	Surface * outputArray;
+	Surface * outputBuffer;
 
 	void generateDemoFrame();
 	void renderFrame();

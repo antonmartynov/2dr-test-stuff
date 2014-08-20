@@ -10,10 +10,10 @@ Rasterizer::~Rasterizer()
 
 }
 
-void Rasterizer::initialize(Resolution initRenderResolution, Surface * initOutputArray)
+void Rasterizer::initialize(Resolution initRenderResolution, Surface * initOutputBuffer)
 {
 	renderResolution = initRenderResolution;
-	outputArray = initOutputArray;
+	outputBuffer = initOutputBuffer;
 }
 
 void Rasterizer::deinitialize()
@@ -33,8 +33,8 @@ Resolution Rasterizer::getRenderResolution()
 
 void Rasterizer::updateRenderResolution()
 {
-	renderResolution.setWidth(outputArray->getWidth());
-	renderResolution.setHeight(outputArray->getHeight());
+	renderResolution.setWidth(outputBuffer->getWidth());
+	renderResolution.setHeight(outputBuffer->getHeight());
 }
 
 void Rasterizer::resize(Resolution newResolution, bool active)
@@ -42,18 +42,18 @@ void Rasterizer::resize(Resolution newResolution, bool active)
 	renderResolution = newResolution;
 	if(active)
 	{
-		outputArray->resize(renderResolution.getWidth(), renderResolution.getHeight());
-    }
+		outputBuffer->resize(renderResolution.getWidth(), renderResolution.getHeight());
+	}
 }
 
 void Rasterizer::generateDemoFrame()
 {
-	int ** oAContent = outputArray->content;
+	int ** oBContent = outputBuffer->content;
 	for(int y = 0; y < renderResolution.getHeight(); ++y)
 	{
 		for(int x = 0; x < renderResolution.getWidth(); ++x)
 		{
-			oAContent[y][x] = ((y) / 64 + (x) / 64) % 2 == 0 ? 0x00008000 : 0x00000080;
+			oBContent[y][x] = ((y) / 64 + (x) / 64) % 2 == 0 ? 0x00008000 : 0x00000080;
         }
     }
 }

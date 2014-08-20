@@ -25,8 +25,7 @@ class ScreenOutput
 
 	int initialize(Resolution initResolution, int initAntiAliasingFactor, TCanvas * initOutputCanvas);
 
-	Surface * currentScreenRenderBuffer;
-	Surface * currentRasterizerRenderBuffer;
+	Surface * currentForegroundRenderBuffer;
 
 	private:
 
@@ -37,8 +36,7 @@ class ScreenOutput
 
 	TCanvas * outputCanvas;
 
-	Surface renderBuffer1;
-	Surface renderBuffer2;
+	Surface renderBuffer;
 	Surface screenBuffer;
 	Graphics::TBitmap * screenBMP;
 	void performAntiAliasing();

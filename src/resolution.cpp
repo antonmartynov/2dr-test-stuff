@@ -6,6 +6,12 @@ Resolution::Resolution()
 	setHeight(1);
 }
 
+Resolution::Resolution(int initWidth, int initHeight)
+{
+	setWidth(initWidth);
+	setHeight(initHeight);
+}
+
 Resolution::~Resolution()
 {
 
