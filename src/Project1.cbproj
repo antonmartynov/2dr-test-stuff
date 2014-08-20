@@ -19,8 +19,10 @@
 			<Base>true</Base>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Base)'!=''">
+			<DynamicRTL>true</DynamicRTL>
+			<LinkPackageImports>rtl.bpi;vcl.bpi;xmlrtl.bpi;vclactnband.bpi;vclx.bpi</LinkPackageImports>
+			<OutputExt>exe</OutputExt>
 			<PackageImports>vclx.bpi;vcl.bpi;vclimg.bpi;dbrtl.bpi;Rave77VCL.bpi;bdertl.bpi;rtl.bpi;bcbie.bpi;vclactnband.bpi;xmlrtl.bpi;bcbsmp.bpi;vcldb.bpi;vcldbx.bpi;vcltouch.bpi;dsnap.bpi;dsnapcon.bpi;TeeUI.bpi;TeeDB.bpi;Tee.bpi;vclib.bpi;ibxpress.bpi;adortl.bpi;IndyCore.bpi;IndySystem.bpi;IndyProtocols.bpi;inet.bpi;intrawebdb_100_140.bpi;Intraweb_100_140.bpi;VclSmp.bpi;vclie.bpi;websnap.bpi;webdsnap.bpi;inetdb.bpi;inetdbbde.bpi;inetdbxpress.bpi;soaprtl.bpi;vclribbon.bpi;dbexpress.bpi;DbxCommonDriver.bpi;DataSnapIndy10ServerTransport.bpi;DataSnapProviderClient.bpi;DbxClientDriver.bpi;DataSnapServer.bpi;DBXInterBaseDriver.bpi;DBXMySQLDriver.bpi;dbxcds.bpi;DBXFirebirdDriver.bpi;DBXSybaseASEDriver.bpi;DBXSybaseASADriver.bpi;DBXOracleDriver.bpi;DBXMSSQLDriver.bpi;DBXInformixDriver.bpi;DBXDb2Driver.bpi</PackageImports>
-			<LinkPackageStatics>rtl.lib;vcl.lib;xmlrtl.lib;vclactnband.lib;vclx.lib</LinkPackageStatics>
 			<Multithreaded>true</Multithreaded>
 			<AllPackageLibs>rtl.lib;vcl.lib;xmlrtl.lib;vclactnband.lib;vclx.lib</AllPackageLibs>
 			<ProjectType>CppVCLApplication</ProjectType>
@@ -50,43 +52,43 @@
 			<BCC_SourceDebuggingOn>true</BCC_SourceDebuggingOn>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_2)'!=''">
-			<DynamicRTL>true</DynamicRTL>
+			<DynamicRTL>false</DynamicRTL>
 			<Defines>NDEBUG;$(Defines)</Defines>
 			<IntermediateOutputDir>Release</IntermediateOutputDir>
 			<ILINK_LibraryPath>$(BDS)\lib\release;$(ILINK_LibraryPath)</ILINK_LibraryPath>
 			<TASM_Debugging>None</TASM_Debugging>
 		</PropertyGroup>
 		<ItemGroup>
-			<ResFiles Include="Project1.res">
-				<BuildOrder>1</BuildOrder>
-			</ResFiles>
-			<CppCompile Include="resolution.cpp">
-				<DependentOn>resolution.h</DependentOn>
-				<BuildOrder>4</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="surface.cpp">
-				<DependentOn>surface.h</DependentOn>
-				<BuildOrder>5</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="mainform.cpp">
-				<Form>Form1</Form>
-				<DependentOn>mainform.h</DependentOn>
-				<BuildOrder>2</BuildOrder>
+			<CppCompile Include="Project1.cpp">
+				<BuildOrder>0</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="screenoutput.cpp">
 				<DependentOn>screenoutput.h</DependentOn>
 				<BuildOrder>3</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="Project1.cpp">
-				<BuildOrder>0</BuildOrder>
+			<CppCompile Include="rasterizer.cpp">
+				<DependentOn>rasterizer.h</DependentOn>
+				<BuildOrder>7</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="graphicshandler.cpp">
 				<DependentOn>graphicshandler.h</DependentOn>
 				<BuildOrder>6</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="rasterizer.cpp">
-				<DependentOn>rasterizer.h</DependentOn>
-				<BuildOrder>7</BuildOrder>
+			<CppCompile Include="resolution.cpp">
+				<DependentOn>resolution.h</DependentOn>
+				<BuildOrder>4</BuildOrder>
+			</CppCompile>
+			<ResFiles Include="Project1.res">
+				<BuildOrder>1</BuildOrder>
+			</ResFiles>
+			<CppCompile Include="mainform.cpp">
+				<Form>Form1</Form>
+				<DependentOn>mainform.h</DependentOn>
+				<BuildOrder>2</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="surface.cpp">
+				<DependentOn>surface.h</DependentOn>
+				<BuildOrder>5</BuildOrder>
 			</CppCompile>
 			<FormResources Include="mainform.dfm"/>
 			<BuildConfiguration Include="Base">

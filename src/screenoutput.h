@@ -1,5 +1,3 @@
-//---------------------------------------------------------------------------
-
 #ifndef screenoutputH
 #define screenoutputH
 
@@ -45,5 +43,5 @@ class ScreenOutput
 	Graphics::TBitmap * screenBMP;
 	void performAntiAliasing();
 };
-//---------------------------------------------------------------------------
+
 #endif

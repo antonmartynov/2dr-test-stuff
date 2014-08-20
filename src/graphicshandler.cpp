@@ -1,8 +1,3 @@
-//---------------------------------------------------------------------------
-
-
-#pragma hdrstop
-
 #include "graphicshandler.h"
 
 GraphicsHandler::GraphicsHandler()
@@ -88,7 +83,3 @@ void __fastcall GraphicsHandler::messageHandler(tagMSG & Msg, bool & Handled)
         formToUpdate->Invalidate();
     }
 }
-
-//---------------------------------------------------------------------------
-
-#pragma package(smart_init)

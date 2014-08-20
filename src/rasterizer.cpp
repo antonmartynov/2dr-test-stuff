@@ -1,8 +1,3 @@
-//---------------------------------------------------------------------------
-
-
-#pragma hdrstop
-
 #include "rasterizer.h"
 
 Rasterizer::Rasterizer()
@@ -68,7 +63,3 @@ void Rasterizer::renderFrame()
 	// temp
 	generateDemoFrame();
 }
-
-//---------------------------------------------------------------------------
-
-#pragma package(smart_init)

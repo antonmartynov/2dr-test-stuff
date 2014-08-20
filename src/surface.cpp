@@ -1,8 +1,3 @@
-//---------------------------------------------------------------------------
-
-
-#pragma hdrstop
-
 #include "surface.h"
 
 Surface::Surface()
@@ -50,7 +45,3 @@ int Surface::getHeight()
 {
     return height;
 }
-
-//---------------------------------------------------------------------------
-
-#pragma package(smart_init)

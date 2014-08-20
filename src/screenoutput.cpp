@@ -1,8 +1,3 @@
-//---------------------------------------------------------------------------
-
-
-#pragma hdrstop
-
 #include "screenoutput.h"
 
 ScreenOutput::ScreenOutput()
@@ -116,7 +111,3 @@ TCanvas * ScreenOutput::getOutputCanvas()
 {
     return outputCanvas;
 }
-
-//---------------------------------------------------------------------------
-
-#pragma package(smart_init)

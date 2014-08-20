@@ -1,5 +1,3 @@
-//---------------------------------------------------------------------------
-
 #ifndef graphicshandlerH
 #define graphicshandlerH
 
@@ -43,5 +41,4 @@ class GraphicsHandler
 	bool formUpdated;
 };
 
-//---------------------------------------------------------------------------
 #endif

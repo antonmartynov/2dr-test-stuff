@@ -1,8 +1,3 @@
-//---------------------------------------------------------------------------
-
-
-#pragma hdrstop
-
 #include "resolution.h"
 
 Resolution::Resolution()
@@ -45,7 +40,3 @@ int Resolution::getHeight()
 {
 	return height;
 }
-
-//---------------------------------------------------------------------------
-
-#pragma package(smart_init)
